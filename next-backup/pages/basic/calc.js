@@ -1,17 +1,13 @@
 import React, { useState } from "react";
 export default function Calc() {
-
-    const [inputs, setInputs] = useState({opcode: "+"})
-    const [result, setResult] = useState(``)
+    const [inputs, setInputs] = useState({})
+    const [result, setResult] = useState({})
     const { num1, num2, opcode} = inputs
 
     const onChange = (e) => {
         e.preventDefault()
         const { value, name } = e.target
-        setInputs({
-            ...inputs,
-            [name]: value
-        })
+        setInputs({...inputs, [name]: value})
     }
 
     const onClick = async (e) => {
@@ -27,9 +23,8 @@ export default function Calc() {
                 return setResult(Number(num1) / Number(num2))
             case "%" :
                 return setResult(Number(num1) % Number(num2))
-            default :
-                alert("히히히히")
-        }
+        }const res = [num1, num2, opcode, result ]
+        alert(`데이터 셋 출력 : ${JSON.stringify(res)}`)
     }
 
     return (<>
@@ -50,11 +45,11 @@ export default function Calc() {
 
             <label htmlFor="">num2</label>
             <input name="num2" type="text" onChange={onChange} /><br />
-
-            <button onClick={onClick}>계산하기</button>
-        </form>
-
-        <div>결과 : {result} </div>
+            <div>
+                <input type = "submit" onClick={onClick}
+                value = "Submit" input/>
+            </div>
+           </form>
     </>
     )
 }

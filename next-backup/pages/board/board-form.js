@@ -4,7 +4,6 @@ import style from "./styles/boardForm.module.css"
 export default function BoardhtmlForm(){
     const [inputs, setInputs] = useState({})
     const {passengerId, name, team, teamId, subject} = inputs
-    const [result, setResult] = useState(``)
 
     const onChange = (e) => {
         e.preventDefault()
@@ -14,11 +13,12 @@ export default function BoardhtmlForm(){
 
     const onClick = async (e) => {
         e.preventDefault()
-        setResult(`${passengerId}, ${name}, ${team}, ${teamId}, ${subject}`)
-        alert(`데이터셋 출력 : ${result}`)
+        const res =[passengerId, name, teamId, subject]
+        alert(`데이터셋 출력 : ${JSON.stringify(res)}`)
     }
 
     return (<>
+        <h1>게시글 등록</h1>
         <div className={style.container}>
             <htmlForm action="">
             <div className={style.row}>
