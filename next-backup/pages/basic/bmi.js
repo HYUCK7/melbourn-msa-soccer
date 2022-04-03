@@ -14,6 +14,8 @@ export default function Bmi() {
     const onClick = async (e) => {
         e.preventDefault()
         setResult(`${name}님의 bmi 지수는 ${(weight *10000/height/height).toFixed(2)}입니다.`)
+        const res = [name, height, weight]
+        alert(`데이터 셋 출력: ${res}`)
     }
     return (<div>
         <form action="">
